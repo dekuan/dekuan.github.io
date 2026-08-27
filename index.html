@@ -8,11 +8,11 @@
     <style>
         :root { --purple:#50004e; --black:#111; --gray:#6f6f73; --line:rgba(80,0,78,.13); --soft:#f5f3f5; --white:#fff; }
         * { box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { margin:0; background:var(--white); color:var(--black); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; -webkit-font-smoothing:antialiased; }
+        html { width:100%; max-width:100%; overflow-x:hidden; scroll-behavior:smooth; }
+        body { width:100%; max-width:100%; margin:0; overflow-x:hidden; background:var(--white); color:var(--black); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; -webkit-font-smoothing:antialiased; }
         a { color:inherit; }
         .page { width:min(1180px,calc(100% - 64px)); margin:0 auto; }
-        .site-header { background:var(--purple); }
+        .site-header { width:100%; background:var(--purple); }
         .header { display:flex; align-items:center; justify-content:space-between; height:96px; }
         .header-identity { display:flex; align-items:center; gap:22px; }
         .header img { display:block; width:66px; height:66px; padding:7px; border-radius:50%; background:var(--white); object-fit:contain; }
@@ -20,12 +20,14 @@
         .header-registered { margin:-.05em 0 0 .12em; font-size:.5em; font-weight:500; letter-spacing:0; line-height:1; }
         .header a { color:rgba(255,255,255,.72); font-size:12px; letter-spacing:.18em; text-decoration:none; transition:color 180ms ease; }
         .header a:hover,.header a:focus-visible { color:var(--white); }
-        .hero { display:flex; min-height:calc(100vh - 96px); align-items:center; padding:72px 0 150px; }
-        .hero-content { max-width:920px; }
+        .hero { position:relative; display:flex; min-height:calc(100vh - 96px); align-items:center; overflow:hidden; padding:72px 0 150px; }
+        .hero-inner { position:relative; z-index:1; }
+        .hero-content { position:relative; z-index:1; max-width:920px; }
+        .hero-mark { position:absolute; top:-270px; right:calc(max(32px,(100vw - 1180px)/2) + 9px); width:min(48vw,620px); height:auto; opacity:.065; pointer-events:none; user-select:none; }
         .eyebrow { margin:0 0 30px; color:var(--purple); font-size:12px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; }
         h1 { margin:0; font-size:clamp(64px,11vw,150px); font-weight:650; letter-spacing:-.075em; line-height:.88; }
         .hero-copy { max-width:570px; margin:58px 0 0; color:var(--gray); font-size:clamp(16px,1.6vw,20px); font-weight:300; line-height:1.9; }
-        .brands-section { overflow:hidden; background:var(--soft); }
+        .brands-section { width:100%; overflow:hidden; background:var(--soft); }
         .brands,.services,.industries { padding:140px 0; }
         .services,.industries { border-top:1px solid var(--line); }
         .section-label { margin:0 0 68px; color:var(--gray); font-size:11px; font-weight:500; letter-spacing:.24em; text-transform:uppercase; }
@@ -39,19 +41,23 @@
         .service h2 { margin:0; font-size:clamp(25px,3vw,38px); font-weight:500; letter-spacing:-.035em; }
         .service h2 span { display:block; margin-top:10px; color:var(--purple); font-size:11px; font-weight:600; letter-spacing:.16em; line-height:1.4; text-transform:uppercase; }
         .service p { margin:0; color:var(--gray); font-size:15px; font-weight:300; line-height:1.8; }
-        .site-footer { border-top:1px solid var(--line); background:var(--soft); }
+        .site-footer { width:100%; border-top:1px solid var(--line); background:var(--soft); }
         .footer { display:grid; grid-template-columns:1fr auto; gap:48px; align-items:end; padding:72px 0 54px; }
         .company { margin:0 0 12px; color:var(--purple); font-size:18px; font-weight:500; }
         .company-en,.copyright,.filing { margin:0; color:var(--gray); font-size:11px; letter-spacing:.06em; line-height:1.9; }
         .filing { display:inline-flex; align-items:center; gap:7px; text-decoration:none; }
         .filing img { width:14px; height:14px; }
         @media (max-width:760px) {
+            html { scrollbar-width:none; }
+            html::-webkit-scrollbar,
+            body::-webkit-scrollbar { width:0; height:0; display:none; }
             .page { width:min(100% - 40px,1180px); }
             .header { height:76px; }
             .header-identity { gap:14px; }
             .header img { width:52px; height:52px; padding:6px; }
             .header-wordmark { font-size:16px; letter-spacing:.16em; }
             .hero { min-height:calc(100svh - 76px); padding:56px 0 100px; }
+            .hero-mark { top:-105px; right:0; width:230px; opacity:.05; }
             h1 { letter-spacing:-.06em; }
             .hero-copy { margin-top:42px; }
             .brands,.services,.industries { padding:96px 0; }
@@ -79,11 +85,14 @@
         </div>
     </header>
     <main>
-        <section class="hero page" aria-labelledby="hero-title">
-            <div class="hero-content">
-                <p class="eyebrow">Technology · Education · Publishing</p>
-                <h1 id="hero-title">德宽科技</h1>
-                <p class="hero-copy">以技术连接知识与创造。我们提供软件开发、教育培训与电子出版物等数字化服务。</p>
+        <section class="hero" aria-labelledby="hero-title">
+            <img class="hero-mark" src="/images/logo_dekuan.png" alt="" aria-hidden="true">
+            <div class="hero-inner page">
+                <div class="hero-content">
+                    <p class="eyebrow">Technology · Education · Publishing</p>
+                    <h1 id="hero-title">德宽科技</h1>
+                    <p class="hero-copy">以技术连接知识与创造。我们提供软件开发、教育培训与电子出版物等数字化服务。</p>
+                </div>
             </div>
         </section>
         <section class="brands-section" aria-labelledby="brands-title">
