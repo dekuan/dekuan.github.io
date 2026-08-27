@@ -14,14 +14,16 @@
         .page { width:min(1180px,calc(100% - 64px)); margin:0 auto; }
         .site-header { background:var(--purple); }
         .header { display:flex; align-items:center; justify-content:space-between; height:96px; }
+        .header-identity { display:flex; align-items:center; gap:22px; }
         .header img { display:block; width:66px; height:66px; padding:7px; border-radius:50%; background:var(--white); object-fit:contain; }
+        .header-wordmark { display:inline-flex; align-items:flex-start; color:var(--white); font-size:20px; font-weight:700; letter-spacing:.2em; line-height:1; }
+        .header-registered { margin:-.05em 0 0 .12em; font-size:.5em; font-weight:500; letter-spacing:0; line-height:1; }
         .header a { color:rgba(255,255,255,.72); font-size:12px; letter-spacing:.18em; text-decoration:none; transition:color 180ms ease; }
         .header a:hover,.header a:focus-visible { color:var(--white); }
         .hero { display:flex; min-height:calc(100vh - 96px); align-items:center; padding:72px 0 150px; }
         .hero-content { max-width:920px; }
         .eyebrow { margin:0 0 30px; color:var(--purple); font-size:12px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; }
         h1 { margin:0; font-size:clamp(64px,11vw,150px); font-weight:650; letter-spacing:-.075em; line-height:.88; }
-        h1 span { display:block; margin-top:20px; color:var(--purple); font-size:.45em; font-weight:500; letter-spacing:.12em; }
         .hero-copy { max-width:570px; margin:58px 0 0; color:var(--gray); font-size:clamp(16px,1.6vw,20px); font-weight:300; line-height:1.9; }
         .brands-section { overflow:hidden; background:var(--soft); }
         .brands,.services,.industries { padding:140px 0; }
@@ -46,7 +48,9 @@
         @media (max-width:760px) {
             .page { width:min(100% - 40px,1180px); }
             .header { height:76px; }
+            .header-identity { gap:14px; }
             .header img { width:52px; height:52px; padding:6px; }
+            .header-wordmark { font-size:16px; letter-spacing:.16em; }
             .hero { min-height:calc(100svh - 76px); padding:56px 0 100px; }
             h1 { letter-spacing:-.06em; }
             .hero-copy { margin-top:42px; }
@@ -67,7 +71,10 @@
 <body>
     <header class="site-header">
         <div class="header page">
-            <img src="/images/logo_dekuan.png" alt="德宽科技标志" width="66">
+            <div class="header-identity">
+                <img src="/images/logo_dekuan.png" alt="德宽科技标志" width="66">
+                <span class="header-wordmark">DEKUAN<sup class="header-registered">®</sup></span>
+            </div>
             <a href="#services">服务领域</a>
         </div>
     </header>
@@ -75,7 +82,7 @@
         <section class="hero page" aria-labelledby="hero-title">
             <div class="hero-content">
                 <p class="eyebrow">Technology · Education · Publishing</p>
-                <h1 id="hero-title">德宽科技<span>DEKUAN</span></h1>
+                <h1 id="hero-title">德宽科技</h1>
                 <p class="hero-copy">以技术连接知识与创造。我们提供软件开发、教育培训与电子出版物等数字化服务。</p>
             </div>
         </section>
