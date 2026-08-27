@@ -1,91 +1,122 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Dekuan, Inc.</title>
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .logo       {}
-            .logo img   { width: 200px; }
-            .title {
-                font-size: 60px; color: #4a0048;
-            }
-
-            .footer
-            {
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                background-color: #EEEEEE;
-            }
-            .footer p
-            {
-                width: 100%;
-                text-align: center;
-                font-family: Verdana;
-                font-size: 11px;
-                color: #999;
-            }
-            .footer p a
-            {
-                color: #999999;
-                line-height: 30px;
-            }
-        </style>
-
-        <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
-
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="logo"><img src="/images/logo_dekuan_full.png" /></div>
-            </div>
-            <div class="footer">
-                <p>
-                    <img style="width: 16px; height: 16px; " align="center" src="/images/beian.png" alt="备案标识" />
-                    <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备15011519号-2</a>
-                </p>
-            </div>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="北京德宽科技有限公司，专注软件开发服务、教育培训与电子出版物等数字化服务。">
+    <title>德宽科技 · DEKUAN</title>
+    <style>
+        :root { --purple:#50004e; --black:#111; --gray:#6f6f73; --line:rgba(80,0,78,.13); --soft:#f5f3f5; --white:#fff; }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; background:var(--white); color:var(--black); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; -webkit-font-smoothing:antialiased; }
+        a { color:inherit; }
+        .page { width:min(1180px,calc(100% - 64px)); margin:0 auto; }
+        .site-header { background:var(--purple); }
+        .header { display:flex; align-items:center; justify-content:space-between; height:96px; }
+        .header img { display:block; width:66px; height:66px; padding:7px; border-radius:50%; background:var(--white); object-fit:contain; }
+        .header a { color:rgba(255,255,255,.72); font-size:12px; letter-spacing:.18em; text-decoration:none; transition:color 180ms ease; }
+        .header a:hover,.header a:focus-visible { color:var(--white); }
+        .hero { display:flex; min-height:calc(100vh - 96px); align-items:center; padding:72px 0 150px; }
+        .hero-content { max-width:920px; }
+        .eyebrow { margin:0 0 30px; color:var(--purple); font-size:12px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; }
+        h1 { margin:0; font-size:clamp(64px,11vw,150px); font-weight:650; letter-spacing:-.075em; line-height:.88; }
+        h1 span { display:block; margin-top:20px; color:var(--purple); font-size:.45em; font-weight:500; letter-spacing:.12em; }
+        .hero-copy { max-width:570px; margin:58px 0 0; color:var(--gray); font-size:clamp(16px,1.6vw,20px); font-weight:300; line-height:1.9; }
+        .brands-section { overflow:hidden; background:var(--soft); }
+        .brands,.services,.industries { padding:140px 0; }
+        .services,.industries { border-top:1px solid var(--line); }
+        .section-label { margin:0 0 68px; color:var(--gray); font-size:11px; font-weight:500; letter-spacing:.24em; text-transform:uppercase; }
+        .brand-list { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
+        .brand-name { display:inline-flex; align-items:flex-start; margin:0; color:var(--purple); font-size:clamp(38px,5vw,72px); font-weight:600; letter-spacing:-.055em; line-height:1; }
+        .brand-name.english { letter-spacing:-.045em; }
+        .registered { margin:.08em 0 0 .16em; font-size:.25em; font-weight:500; letter-spacing:0; line-height:1; }
+        .brand-meta { display:block; margin-top:20px; color:var(--gray); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+        .service-list { border-bottom:1px solid var(--line); }
+        .service { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:baseline; border-top:1px solid var(--line); padding:42px 0; }
+        .service h2 { margin:0; font-size:clamp(25px,3vw,38px); font-weight:500; letter-spacing:-.035em; }
+        .service h2 span { display:block; margin-top:10px; color:var(--purple); font-size:11px; font-weight:600; letter-spacing:.16em; line-height:1.4; text-transform:uppercase; }
+        .service p { margin:0; color:var(--gray); font-size:15px; font-weight:300; line-height:1.8; }
+        .site-footer { border-top:1px solid var(--line); background:var(--soft); }
+        .footer { display:grid; grid-template-columns:1fr auto; gap:48px; align-items:end; padding:72px 0 54px; }
+        .company { margin:0 0 12px; color:var(--purple); font-size:18px; font-weight:500; }
+        .company-en,.copyright,.filing { margin:0; color:var(--gray); font-size:11px; letter-spacing:.06em; line-height:1.9; }
+        .filing { display:inline-flex; align-items:center; gap:7px; text-decoration:none; }
+        .filing img { width:14px; height:14px; }
+        @media (max-width:760px) {
+            .page { width:min(100% - 40px,1180px); }
+            .header { height:76px; }
+            .header img { width:52px; height:52px; padding:6px; }
+            .hero { min-height:calc(100svh - 76px); padding:56px 0 100px; }
+            h1 { letter-spacing:-.06em; }
+            .hero-copy { margin-top:42px; }
+            .brands,.services,.industries { padding:96px 0; }
+            .brand-list { grid-template-columns:1fr; gap:58px; }
+            .service { grid-template-columns:1fr; gap:14px; padding:34px 0; }
+            .footer { grid-template-columns:1fr; gap:28px; padding:54px 0 40px; }
+        }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#50004e">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header page">
+            <img src="/images/logo_dekuan.png" alt="德宽科技标志" width="66">
+            <a href="#services">服务领域</a>
         </div>
-
-    </body>
+    </header>
+    <main>
+        <section class="hero page" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow">Technology · Education · Publishing</p>
+                <h1 id="hero-title">德宽科技<span>DEKUAN</span></h1>
+                <p class="hero-copy">以技术连接知识与创造。我们提供软件开发、教育培训与电子出版物等数字化服务。</p>
+            </div>
+        </section>
+        <section class="brands-section" aria-labelledby="brands-title">
+            <div class="brands page">
+                <p class="section-label" id="brands-title">Our Brands / 品牌</p>
+                <div class="brand-list">
+                    <div><p class="brand-name">德宽<sup class="registered">®</sup></p><span class="brand-meta">Technology &amp; Knowledge</span></div>
+                    <div><p class="brand-name">云宽<sup class="registered">®</sup></p><span class="brand-meta">Cloud &amp; Digital</span></div>
+                    <div><p class="brand-name english">DEKUAN<sup class="registered">®</sup></p><span class="brand-meta">Digital Innovation</span></div>
+                </div>
+            </div>
+        </section>
+        <section class="services page" id="services" aria-labelledby="services-title">
+            <p class="section-label" id="services-title">Business / 业务与服务</p>
+            <div class="service-list">
+                <article class="service"><h2>数字产品<span>Digital Products</span></h2><p>计算机软件、可下载软件及电子出版物等数字化产品。</p></article>
+                <article class="service"><h2>教育与出版<span>Education &amp; Publishing</span></h2><p>教育培训、课程与知识服务，以及在线电子出版物服务。</p></article>
+                <article class="service"><h2>软件开发<span>Software Engineering</span></h2><p>软件设计与开发、技术咨询、云端应用及数字化解决方案。</p></article>
+            </div>
+        </section>
+        <section class="industries page" aria-labelledby="industries-title">
+            <p class="section-label" id="industries-title">Industries / 服务行业领域</p>
+            <div class="service-list">
+                <article class="service"><h2>金融科技<span>Financial Technology</span></h2><p>面向金融机构与金融科技场景，提供成熟可靠的软件架构设计、系统研发、长期运维与持续演进服务。</p></article>
+                <article class="service"><h2>区块链与人工智能<span>Blockchain &amp; Artificial Intelligence</span></h2><p>聚焦 Blockchain 与 AI 前沿技术，提供创新软件研发、工程化落地、技术咨询及专业技术培训。</p></article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer page">
+            <div>
+                <p class="company">北京德宽科技有限公司</p>
+                <p class="company-en">BEIJING DEKUAN TECHNOLOGY CO., LTD.</p>
+                <p class="copyright">© 2015–<span id="current-year"></span> DEKUAN. ALL RIGHTS RESERVED.</p>
+            </div>
+            <a class="filing" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer"><img src="/images/beian.png" alt="" width="14" height="14">京ICP备15011519号-2</a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>
