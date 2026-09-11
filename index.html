@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="北京德宽科技有限公司，专注软件开发服务、教育培训与电子出版物等数字化服务。">
+    <meta name="description" content="北京德宽科技有限公司专注软件研发、技术服务与专业培训，技术领域涵盖网络安全、区块链、分布式系统、工业数字化与金融科技。">
     <title>德宽科技 · DEKUAN</title>
     <style>
         :root { --purple:#50004e; --black:#111; --gray:#6f6f73; --line:rgba(80,0,78,.13); --soft:#f5f3f5; --white:#fff; }
@@ -18,6 +18,7 @@
         .header img { display:block; width:66px; height:66px; padding:7px; border-radius:50%; background:var(--white); object-fit:contain; }
         .header-wordmark { display:inline-flex; align-items:flex-start; color:var(--white); font-size:20px; font-weight:700; letter-spacing:.2em; line-height:1; }
         .header-registered { margin:-.05em 0 0 .12em; font-size:.5em; font-weight:500; letter-spacing:0; line-height:1; }
+        .header-nav { display:flex; align-items:center; gap:30px; }
         .header a { color:rgba(255,255,255,.72); font-size:12px; letter-spacing:.18em; text-decoration:none; transition:color 180ms ease; }
         .header a:hover,.header a:focus-visible { color:var(--white); }
         .hero { position:relative; display:flex; min-height:calc(100vh - 96px); align-items:center; overflow:hidden; padding:72px 0 150px; }
@@ -28,19 +29,36 @@
         h1 { margin:0; font-size:clamp(64px,11vw,150px); font-weight:650; letter-spacing:-.075em; line-height:.88; }
         .hero-copy { max-width:570px; margin:58px 0 0; color:var(--gray); font-size:clamp(16px,1.6vw,20px); font-weight:300; line-height:1.9; }
         .brands-section { width:100%; overflow:hidden; background:var(--soft); }
-        .brands,.services,.industries { padding:140px 0; }
-        .services,.industries { border-top:1px solid var(--line); }
+        .brands,.about,.services,.industries,.journey { padding:140px 0; }
+        .about,.services,.industries { border-top:1px solid var(--line); }
         .section-label { margin:0 0 68px; color:var(--gray); font-size:11px; font-weight:500; letter-spacing:.24em; text-transform:uppercase; }
         .brand-list { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
         .brand-name { display:inline-flex; align-items:flex-start; margin:0; color:var(--purple); font-size:clamp(38px,5vw,72px); font-weight:600; letter-spacing:-.055em; line-height:1; }
         .brand-name.english { letter-spacing:-.045em; }
         .registered { margin:.08em 0 0 .16em; font-size:.25em; font-weight:500; letter-spacing:0; line-height:1; }
         .brand-meta { display:block; margin-top:20px; color:var(--gray); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+        .about-grid { display:grid; grid-template-columns:.9fr 1.25fr; gap:80px; align-items:start; }
+        .about h2 { margin:0; color:var(--purple); font-size:clamp(38px,4.5vw,64px); font-weight:550; letter-spacing:-.055em; line-height:1.15; white-space:nowrap; }
+        .about h2 small { display:block; margin-top:20px; color:var(--gray); font-size:10px; font-weight:600; letter-spacing:.17em; line-height:1.5; text-transform:uppercase; }
+        .about-copy { max-width:650px; }
+        .about-lead { margin:0 0 34px; color:var(--purple); font-size:clamp(24px,2.5vw,34px); font-weight:500; letter-spacing:-.035em; line-height:1.45; }
+        .about-copy p { margin:0; color:var(--gray); font-size:16px; font-weight:300; line-height:2; }
+        .about-copy p + p { margin-top:24px; }
         .service-list { border-bottom:1px solid var(--line); }
         .service { display:grid; grid-template-columns:1fr 1.15fr; gap:48px; align-items:baseline; border-top:1px solid var(--line); padding:42px 0; }
         .service h2 { margin:0; font-size:clamp(25px,3vw,38px); font-weight:500; letter-spacing:-.035em; }
         .service h2 span { display:block; margin-top:10px; color:var(--purple); font-size:11px; font-weight:600; letter-spacing:.16em; line-height:1.4; text-transform:uppercase; }
         .service p { margin:0; color:var(--gray); font-size:15px; font-weight:300; line-height:1.8; }
+        .journey-section { width:100%; background:var(--soft); }
+        .journey-list { border-bottom:1px solid var(--line); }
+        .milestone { display:grid; grid-template-columns:120px .85fr 1.35fr; gap:36px; align-items:start; border-top:1px solid var(--line); padding:38px 0; }
+        .milestone-time { color:var(--purple); font-size:clamp(18px, 1.7vw, 24px); font-weight:550; line-height:1; letter-spacing:-.025em; font-variant-numeric:tabular-nums; }
+        .milestone h3 { margin:0; font-size:clamp(22px,2.4vw,32px); font-weight:500; letter-spacing:-.035em; line-height:1.25; }
+        .milestone h3 span { display:block; margin-top:9px; color:var(--purple); font-size:10px; font-weight:600; letter-spacing:.15em; line-height:1.4; text-transform:uppercase; }
+        .milestone p { margin:0; color:var(--gray); font-size:14px; font-weight:300; line-height:1.9; }
+        .slogan { padding:190px 0 200px; text-align:center; }
+        .slogan h2 { margin:0; color:var(--purple); font-size:clamp(38px,5.6vw,74px); font-weight:550; letter-spacing:-.055em; line-height:1.2; }
+        .slogan p { margin:26px 0 0; color:var(--gray); font-size:11px; font-weight:550; letter-spacing:.2em; line-height:1.6; text-transform:uppercase; }
         .site-footer { width:100%; border-top:1px solid var(--line); background:var(--soft); }
         .footer { display:grid; grid-template-columns:1fr auto; gap:48px; align-items:end; padding:72px 0 54px; }
         .company { margin:0 0 12px; color:var(--purple); font-size:18px; font-weight:500; }
@@ -56,13 +74,22 @@
             .header-identity { gap:14px; }
             .header img { width:52px; height:52px; padding:6px; }
             .header-wordmark { font-size:16px; letter-spacing:.16em; }
-            .hero { min-height:calc(100svh - 76px); padding:56px 0 100px; }
+            .header { height:auto; min-height:76px; flex-wrap:wrap; padding:12px 0 10px; }
+            .header-nav { width:100%; justify-content:space-between; gap:8px; margin-top:10px; padding-top:9px; border-top:1px solid rgba(255,255,255,.14); }
+            .header-nav a { font-size:10px; letter-spacing:.08em; white-space:nowrap; }
+            .hero { min-height:calc(100svh - 112px); padding:56px 0 100px; }
             .hero-mark { top:-105px; right:0; width:230px; opacity:.05; }
             h1 { letter-spacing:-.06em; }
             .hero-copy { margin-top:42px; }
-            .brands,.services,.industries { padding:96px 0; }
+            .brands,.about,.services,.industries,.journey { padding:96px 0; }
             .brand-list { grid-template-columns:1fr; gap:58px; }
+            .about-grid { grid-template-columns:1fr; gap:42px; }
+            .about-copy p { font-size:15px; line-height:1.9; }
             .service { grid-template-columns:1fr; gap:14px; padding:34px 0; }
+            .milestone { grid-template-columns:1fr; gap:12px; padding:34px 0; }
+            .milestone-time { padding-top:0; }
+            .slogan { padding:120px 0 128px; }
+            .slogan p { margin-top:20px; font-size:9px; letter-spacing:.13em; }
             .footer { grid-template-columns:1fr; gap:28px; padding:54px 0 40px; }
         }
         @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
@@ -81,7 +108,12 @@
                 <img src="/images/logo_dekuan.png" alt="德宽科技标志" width="66">
                 <span class="header-wordmark">DEKUAN<sup class="header-registered">®</sup></span>
             </div>
-            <a href="#services">服务领域</a>
+            <nav class="header-nav" aria-label="主要栏目">
+                <a href="#about">关于德宽</a>
+                <a href="#business">业务范围</a>
+                <a href="#industries">服务领域</a>
+                <a href="#journey">技术历程</a>
+            </nav>
         </div>
     </header>
     <main>
@@ -105,20 +137,75 @@
                 </div>
             </div>
         </section>
-        <section class="services page" id="services" aria-labelledby="services-title">
-            <p class="section-label" id="services-title">Business / 业务与服务</p>
+        <section class="about page" id="about" aria-labelledby="about-title">
+            <p class="section-label" id="about-title">About DEKUAN / 关于德宽</p>
+            <div class="about-grid">
+                <h2>持久耕耘<small>A Lasting Commitment to Technology</small></h2>
+                <div class="about-copy">
+                    <p class="about-lead">始于2005，持续创造技术的长期价值。</p>
+                    <p>北京德宽科技有限公司长期专注于软件研发、技术服务、技术咨询及专业技术培训，在计算机与网络安全、区块链、分布式系统、大数据、物联网、人工智能及金融科技等领域持续开展技术研发与项目实践。</p>
+                    <p>德宽®的技术积累始于2005年前后。从“微盾（VirtualWall）”系列安全产品起步，团队长期面对服务器安全、访问控制、流媒体防盗链和高并发系统等真实问题。我们相信，可靠的技术不应只存在于概念和演示中，更要经受复杂业务、持续流量与长期运行的检验。正是在一次次产品研发、线上实践和持续维护中，德宽逐渐建立起对系统稳定性、性能边界与工程质量的敬畏。</p>
+                    <p>随着技术不断演进，德宽®的研发视野从计算机与网络安全，逐步延伸至区块链、分布式系统、物联网、工业数字化、人工智能与金融科技。无论是自主研发区块链产品，探索去中心化网络与数据存储，还是参与煤矿大数据、智能感知及金融市场结构识别项目，我们始终关注技术如何真正进入业务、解决问题，并在真实环境中稳定运行。</p>
+                    <p>对德宽®而言，技术不是追逐短期热点的工具，而是一项需要耐心、判断与责任的长期工作。我们珍视对技术本身的热爱，也尊重每一行代码在实际系统中的成本与影响；既愿意探索新的技术边界，也重视软件的安全、可靠、可维护与可持续演进。</p>
+                    <p>在每一次合作中，我们希望先理解客户面对的真实问题，再选择适合的技术路径。我们不夸大技术，也不回避复杂性，而是以坦诚的沟通、务实的研发和长期的服务完成承诺。这份对技术的认真、对合作的真诚，以及日复一日的持续投入，构成了德宽®一路走来的基础。</p>
+                </div>
+            </div>
+        </section>
+        <section class="services page" id="business" aria-labelledby="services-title">
+            <p class="section-label" id="services-title">Business / 业务范围</p>
             <div class="service-list">
                 <article class="service"><h2>数字产品<span>Digital Products</span></h2><p>计算机软件、可下载软件及电子出版物等数字化产品。</p></article>
                 <article class="service"><h2>教育与出版<span>Education &amp; Publishing</span></h2><p>教育培训、课程与知识服务，以及在线电子出版物服务。</p></article>
                 <article class="service"><h2>软件开发<span>Software Engineering</span></h2><p>软件设计与开发、技术咨询、云端应用及数字化解决方案。</p></article>
             </div>
         </section>
-        <section class="industries page" aria-labelledby="industries-title">
-            <p class="section-label" id="industries-title">Industries / 服务行业领域</p>
+        <section class="industries page" id="industries" aria-labelledby="industries-title">
+            <p class="section-label" id="industries-title">Industries / 服务领域</p>
             <div class="service-list">
                 <article class="service"><h2>金融科技<span>Financial Technology</span></h2><p>面向金融机构与金融科技场景，提供成熟可靠的软件架构设计、系统研发、长期运维与持续演进服务。</p></article>
                 <article class="service"><h2>区块链与人工智能<span>Blockchain &amp; Artificial Intelligence</span></h2><p>聚焦 Blockchain 与 AI 前沿技术，提供创新软件研发、工程化落地、技术咨询及专业技术培训。</p></article>
             </div>
+        </section>
+        <section class="journey-section" id="journey" aria-labelledby="journey-title">
+            <div class="journey page">
+                <p class="section-label" id="journey-title">Technology Journey / 技术历程</p>
+                <div class="journey-list">
+                    <article class="milestone">
+                        <span class="milestone-time">2005</span>
+                        <h3>安全技术起点<span>Security Foundation</span></h3>
+                        <p>开始研发“微盾（VirtualWall）”系列安全产品，涵盖服务器安全防护、访问控制及流媒体防盗链等核心能力，拥有多项自主知识产权，部分软件后续实现开源免费。</p>
+                    </article>
+                    <article class="milestone">
+                        <span class="milestone-time">2008</span>
+                        <h3>央视网安全防护方案<span>Broadcast Media Security Solution</span></h3>
+                        <p>以自主研发的视频防盗链技术参与央视网（CCTV.com）视频安全防护系统方案竞标，围绕高并发访问下的链接鉴权、盗链识别、访问控制与内容资源保护，形成并提交了具有较强技术先进性与工程可实施性的防盗链方案。</p>
+                    </article>
+                    <article class="milestone">
+                        <span class="milestone-time">2016</span>
+                        <h3>百亿级防盗链系统<span>10B-Scale Hotlink Protection</span></h3>
+                        <p>为国内大型视频平台A站（AcFun）建设并落地高并发视频防盗链与安全防护系统，稳定承载每日百亿级访问请求，实现大规模盗链流量的实时识别与拦截；相关防盗链核心技术获得国家发明专利授权。</p>
+                    </article>
+                    <article class="milestone">
+                        <span class="milestone-time">2018</span>
+                        <h3>区块链与分布式系统<span>Distributed Technology</span></h3>
+                        <p>自主研发 TrustNote 等区块链产品，并围绕 Ethereum、libp2p、去中心化网络、数据分发及分布式应用开展研发与海外项目实践。</p>
+                    </article>
+                    <article class="milestone">
+                        <span class="milestone-time">2022</span>
+                        <h3>工业数字化<span>Industrial Intelligence</span></h3>
+                        <p>参与山西多个大型煤矿数字化项目，围绕煤矿大数据与安全生产场景，研发人员定位、人脸识别、危险行为抓拍、电子围栏、物联网接入及安全管理等系统，并提供技术咨询与专业培训服务。</p>
+                    </article>
+                    <article class="milestone">
+                        <span class="milestone-time">2023</span>
+                        <h3>金融量化交易系统<span>Quantitative Trading Systems</span></h3>
+                        <p>深耕金融量化分析与交易系统研发，融合艾略特波浪理论、机器学习、大模型与量化技术，构建金融市场波浪结构自动识别引擎及量化交易系统，持续形成具有国际竞争力的核心技术，并为新加坡等海外客户提供技术研发、服务与支持。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="slogan page" aria-labelledby="slogan-title">
+            <h2 id="slogan-title">以技术，让我们的客户更强大！</h2>
+            <p>Empowering Our Clients Through Technology</p>
         </section>
     </main>
     <footer class="site-footer">
@@ -132,7 +219,8 @@
         </div>
     </footer>
     <script>
-        document.getElementById("current-year").textContent = new Date().getFullYear();
+        const currentYear = new Date().getFullYear();
+        document.getElementById("current-year").textContent = currentYear;
     </script>
 </body>
 </html>
